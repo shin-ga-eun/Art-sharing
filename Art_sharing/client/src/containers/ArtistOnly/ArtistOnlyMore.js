@@ -8,11 +8,14 @@ import Button from '@material-ui/core/Button';
 import { Card } from '@material-ui/core';
 import useStyles from '../../styles/ArtItemMoreIndex';
 import ArtistOnlyMoreDelete from './ArtistOnlyMoreDelet'
+import { Link } from "react-router-dom";
+import ArtistOnlyMoreUpdate from '../ArtistOnly/ArtistOnlyMoreUpdate';
+
 import axios from 'axios';
 
 
 
-const ArtistOnlyMore =({match}) => {
+const ArtistOnlyMore = ({match}) => {
 
     const classes = useStyles.bind();
     console.log(match.params.id);
@@ -69,12 +72,10 @@ const ArtistOnlyMore =({match}) => {
 
               <Grid container xs= {12} direction="row" justify="flex-end" alignItems="flex-start">
                 <Grid>
-                <Button href = {`/ArtistOnlyMoreUpdate/${artItem.id}`} size="small" color="primary">
-                                수정하기
-                            </Button>
+                    <ArtistOnlyMoreUpdate id={artItem.id}/>
                  </Grid>
                  <Grid>
-                    <ArtistOnlyMoreDelete id = {artItem.id}/>
+                    <ArtistOnlyMoreDelete id={artItem.id}/>
                  </Grid>
                </Grid>
               

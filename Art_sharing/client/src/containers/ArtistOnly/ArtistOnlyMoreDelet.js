@@ -38,8 +38,12 @@ class ArtistOnlyMoreDelete extends Component {
 
     handleRemove = async (e) => {
         e.preventDefault(); // axios를 통하여 데이터를 넘겨주는 부분 구현해야 함
-        console.log(this.state);
+        this.setState({
+            open: false,
+            setOpen: false,
+        })
         const { id } = this.state;
+        console.log(id);
  
   
         try {
@@ -53,8 +57,25 @@ class ArtistOnlyMoreDelete extends Component {
 
     }
 
+    // handleRemove = (e) => {
+    //     const { id } = this.state;
+    //     const url = `/artSharing/art/`;
+        
+    //     console.log(id);
+        
+    //     e.preventDefault();
+    //     axios.delete(url+id)
+    //         .then(response => {
+    //                 console.log(response.data);
+    //         })
+    //         .catch((err) => {
+    //             console.log(err);
+    //         })
+    // }
+
 
   render() {
+
         return (
 
 
@@ -66,23 +87,23 @@ class ArtistOnlyMoreDelete extends Component {
             {/* 다이얼로그 start */}
             <Dialog
                 open={this.state.open}
-                onClose={this.handleClose}
+                // onClose={this.handleClose}
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
             >
                 <DialogTitle id="alert-dialog-title">{"해당 작품을 영구적으로 삭제하시겠습니까 ?"}</DialogTitle>
                 <DialogContent>
-                <DialogContentText id="alert-dialog-description">
-                    해당 작품을 영구적으로 삭제하시겠습니까 ?
-                </DialogContentText>
+                    <DialogContentText id="alert-dialog-description">
+                        해당 작품을 영구적으로 삭제하시겠습니까 ?
+                    </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                <Button onClick={this.handleClose} color="secondary" autofocus>
-                    취소
-                </Button>
-                <Button onClick = {this.handleRemove} color="secondary" variant = "contained">
-                    삭제하기
-                </Button>
+                    <Button onClick={this.handleClose}  color="secondary" >
+                        취소
+                    </Button>
+                    <Button onClick={this.handleRemove} color="secondary" variant="contained">
+                        삭제하기
+                    </Button>
                 </DialogActions>
             </Dialog>
            {/* 다이얼로그 end */}

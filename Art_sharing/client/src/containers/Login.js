@@ -15,69 +15,69 @@ class Login extends Component {
       open: false, // dialog 창이 열려있는지 유무
   }
 
-handleClickOpen= () => {
-    this.setState({
-        open: true, // Dialog 창을 열어준다
-    });
-}
+    handleClickOpen= () => {
+        this.setState({
+            open: true, // Dialog 창을 열어준다
+        });
+    }
 
-  handleClose= () => {
-      this.setState({
-          id: "",
-          password: "",
-          open: false, // Dialog 텍스트를 초기화 하고 닫아준다
-      });
-  }
+    handleClose= () => {
+        this.setState({
+            id: "",
+            password: "",
+            open: false, // Dialog 텍스트를 초기화 하고 닫아준다
+        });
+    }
 
-  handleValueChange= (e) => {
-      const nextState = {};
-      nextState[e.target.name] = e.target.value;
-      this.setState(nextState);
-  }
+    handleValueChange= (e) => {
+        const nextState = {};
+        nextState[e.target.name] = e.target.value;
+        this.setState(nextState);
+    }
 
-  handleFormSubmit= async (e) => {
-      e.preventDefault(); // axios를 통하여 데이터를 넘겨주는 부분 구현해야 함
-      console.log(this.state);
-      const { id, password } = this.state;
-      const { history, handleLogin } = this.props;
-
-
-      try {
-          const response = await Axios.post("/artSharing/sign", {
-              id, // 똑같아서 생략 가능
-              pw: password,
-          });
-
-          this.handleClose();
-          handleLogin(true);
-          console.log(response);
-          history.push("/");
-      } catch (error) {
-          alert(error);
-          console.log(error);
-      }
-  }
+    handleFormSubmit= async (e) => {
+        e.preventDefault(); // axios를 통하여 데이터를 넘겨주는 부분 구현해야 함
+        console.log(this.state);
+        const { id, password } = this.state;
+        const { history, handleLogin } = this.props;
 
 
-  render() {
-      return (
-          <div>
-              <Button color="inherit" onClick={this.handleClickOpen}>
-                 로그인
-              </Button>
-              <Dialog open={this.state.open} onClose={this.handleClose}>
-                  <DialogTitle>Login</DialogTitle>
-                  <DialogContent>
-                      <TextField label="id" type="text" name="id" value={this.state.id} onChange={this.handleValueChange} /><br />
-                      <TextField label="pw" type="password" name="password" value={this.state.password} onChange={this.handleValueChange} /><br />
-                  </DialogContent>
-                  <DialogActions>
-                      <Button variant="outlined" color="primary" onClick={this.handleFormSubmit}>ok</Button>
-                      <Button variant="outlined" color="primary" onClick={this.handleClose}>close</Button>
-                  </DialogActions>
-              </Dialog>
-          </div>
-      );
-  }
+        try {
+            const response = await Axios.post("/artSharing/sign", {
+                id, // 똑같아서 생략 가능
+                pw: password,
+            });
+
+            this.handleClose();
+            handleLogin(true);
+            console.log(response);
+            history.push("/");
+        } catch (error) {
+            alert(error);
+            console.log(error);
+        }
+    }
+
+
+    render() {
+        return (
+            <div>
+                <Button color="inherit" onClick={this.handleClickOpen}>
+                    로그인
+                </Button>
+                <Dialog open={this.state.open} onClose={this.handleClose}>
+                    <DialogTitle>Login</DialogTitle>
+                    <DialogContent>
+                        <TextField label="id" type="text" name="id" value={this.state.id} onChange={this.handleValueChange} /><br />
+                        <TextField label="pw" type="password" name="password" value={this.state.password} onChange={this.handleValueChange} /><br />
+                    </DialogContent>
+                    <DialogActions>
+                        <Button variant="outlined" color="primary" onClick={this.handleFormSubmit}>ok</Button>
+                        <Button variant="outlined" color="primary" onClick={this.handleClose}>close</Button>
+                    </DialogActions>
+                </Dialog>
+            </div>
+        );
+    }
 }
 export default withRouter(Login);

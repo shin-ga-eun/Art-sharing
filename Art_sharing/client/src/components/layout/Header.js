@@ -52,7 +52,7 @@ class Blog extends React.Component {
                                    noWrap
                                    className={classes.toolbarTitle}
                                >
-          SK-Art-sharing
+                                    SK-Art-sharing
                                </Typography>
                            </Button>
                        </Grid>
@@ -64,12 +64,12 @@ class Blog extends React.Component {
                        </Grid>
                    </Toolbar>
                    <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
-                       <Button color="inherit" noWrap variant="body2" className={classes.toolbarLink} href="/artItemList">작품보기</Button>
+                       <Link to="/artItemList"><Button color="inherit" noWrap variant="body2" className={classes.toolbarLink}>작품보기</Button></Link>
                        <Link to="/artist"> <Button color="inherit">작가보기</Button></Link>
-                       <Button color="inherit" href="/artistOnly">작품관리</Button>
-                       <Button color="inherit" href="/rentList">대여관리</Button>
+                       <Link to="/artistOnly"><Button color="inherit">작품관리</Button></Link>
+                       <Link to="/rentList"><Button color="inherit" >대여관리</Button></Link>
                        {isLogin === true && 
-                        <Link to="/profile"><Button color="inherit">회원정보</Button></Link>
+                            <Link to="/profile"><Button color="inherit">회원정보</Button></Link>
                        }
 
 

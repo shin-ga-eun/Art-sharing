@@ -12,8 +12,6 @@ import ArtistOnly from "../../containers/ArtistOnly/ArtistOnly";
 import ArtItemMore from "../../containers/ArtItemList/ArtItemMore";
 import Main from "../../containers/Main";
 import ArtistOnlyMore from "../../containers/ArtistOnly/ArtistOnlyMore";
-import ArtistOnlyMoreUpdate from "../../containers/ArtistOnly/ArtistOnlyMoreUpdate";
-
 
 export default function Blog() {
     const classes = useStyles();
@@ -37,9 +35,7 @@ export default function Blog() {
                         <Route exact path="/signup" component={SignUp} />{/* 회원가입 */}
                         <Route exact path="/ArtItemMore/:id" component={ArtItemMore} />{/* 작품상세화면 */}
                         <Route exact path="/ArtistOnlyMore/:id" component={ArtistOnlyMore} />{/* 작가-작품상세화면 */}
-                        <Route exact path="/ArtistOnlyMoreUpdate/:id" component={ArtistOnlyMoreUpdate} />{/* 작가-작품상세화면 수정 */}
 
-                        
 
                     </Container>
                 </div>
