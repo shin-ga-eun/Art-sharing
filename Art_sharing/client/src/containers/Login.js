@@ -12,6 +12,7 @@ class Login extends Component {
   state={
       id: "",
       password: "",
+      role:"",
       open: false, // dialog 창이 열려있는지 유무
   }
 
@@ -38,7 +39,7 @@ class Login extends Component {
     handleFormSubmit= async (e) => {
         e.preventDefault(); // axios를 통하여 데이터를 넘겨주는 부분 구현해야 함
         console.log(this.state);
-        const { id, password } = this.state;
+        const { id, password, role } = this.state;
         const { history, handleLogin } = this.props;
 
 
@@ -48,10 +49,24 @@ class Login extends Component {
                 pw: password,
             });
 
+            const {status, data} = response;
+
+            if (status === 200){
+                console.log("ss"+data);
+
+                this.setState({
+                    role: response.data
+                })
+                console.log("dd"+this.state.role);
+            }
+
             this.handleClose();
-            handleLogin(true);
+            handleLogin(true,this.state.role);
             console.log(response);
             history.push("/");
+
+            
+
         } catch (error) {
             alert(error);
             console.log(error);

@@ -13,12 +13,15 @@ import useStyles from "../../styles/FrameIndex2";
 class Blog extends React.Component {
    state={
        isLogin: false,
+       role:'',
    }
 
-   handleLogin=(isLogin) => {
+   handleLogin=(isLogin, role) => {
        this.setState({
            isLogin,
+           role: role
        });
+       console.log("role"+this.state.role);
    }
 
    handleLogout=async () => {
@@ -35,7 +38,7 @@ class Blog extends React.Component {
 
    render() {
        const classes = useStyles.bind();
-       const { isLogin } = this.state;
+       const { isLogin, role } = this.state;
 
        return (
            <React.Fragment>
@@ -66,8 +69,9 @@ class Blog extends React.Component {
                    <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
                        <Link to="/artItemList"><Button color="inherit" noWrap variant="body2" className={classes.toolbarLink}>작품보기</Button></Link>
                        <Link to="/artist"> <Button color="inherit">작가보기</Button></Link>
-                       <Link to="/artistOnly"><Button color="inherit">작품관리</Button></Link>
-                       <Link to="/rentList"><Button color="inherit" >대여관리</Button></Link>
+                       {role === "ARTIST" && <Link to="/artistOnly"><Button color="inherit">작품관리</Button></Link>}
+                       {role === "ARTIST" && <Link to="/rentList"><Button color="inherit" >대여관리(작가용)</Button></Link>}
+                       {role === "CLIENT" &&<Link to="/rentListClient"><Button color="inherit">대여관리(고객용)</Button></Link>}
                        {isLogin === true && 
                             <Link to="/profile"><Button color="inherit">회원정보</Button></Link>
                        }

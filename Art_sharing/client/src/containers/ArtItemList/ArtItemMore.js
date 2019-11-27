@@ -62,7 +62,7 @@ const ArtItemMore = ({ match }) => {
                                       작품 등록일:{artItem.regDate}
                                     </Typography>
                                     <Typography gutterBottom>
-                                        <PayButton />
+                                        <PayButton id={artItem.id}/>
                                     </Typography>
                                     <Link variant="outlined" color="primary" to="/artItemList">되돌아가기</Link>
                                 </Grid>
