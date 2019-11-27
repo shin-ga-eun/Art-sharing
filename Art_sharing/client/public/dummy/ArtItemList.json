@@ -1,0 +1,111 @@
+{"artItems" : [   
+    {
+     "id": "1",
+     "title": "My first post",
+     "artist": "신가은",
+     "image": "https://bit.ly/2WNi2Ml",
+     "rentalDate": "date",
+     "rentalToggle": "true",
+     "descript": "1번 작품입니다."
+
+    },
+   
+    {
+      "id": "2",
+     "title": "My second post",
+     "artist": "라영지",
+     "image": "https://bit.ly/2WNi2Ml",
+     "rentalDate": "date",
+     "rentalToggle": "true",
+     "descript": "2번 작품입니다."
+
+    },
+   
+    {
+      "id": "3",
+     "title": "My third post",
+     "artist": "김수연",
+     "image": "https://bit.ly/2WNi2Ml",
+     "rentalDate": "date",
+     "rentalToggle": "true",
+     "descript": "3번 작품입니다."
+
+    },
+   
+    {
+      "id": "4",
+     "title": "My fourth post",
+     "artist": "박선형",
+     "image": "https://bit.ly/2WNi2Ml",
+     "rentalDate": "date",
+     "rentalToggle": "true",
+     "descript": "4번 작품입니다."
+
+    },
+   
+    {
+      "id": "5",
+     "title": "My fifth post",
+     "artist": "홍영준",
+     "image": "https://bit.ly/2WNi2Ml",
+     "rentalDate": "date",
+     "rentalToggle": "true",
+     "descript": "5번 작품입니다."
+
+    },
+   
+    {
+      "id": "6",
+     "title": "My sixth post",
+     "artist": "조정석",
+     "image": "https://bit.ly/2WNi2Ml",
+     "rentalDate": "date",
+     "rentalToggle": "true",
+     "descript": "6번 작품입니다."
+
+    },
+  
+    {
+        "id": "7",
+        "title": "My sixth post",
+        "artist": "칠번작가",
+        "image": "https://bit.ly/2WNi2Ml",
+        "rentalDate": "date",
+        "rentalToggle": "true",
+        "descript": "7번 작품입니다."
+
+       },
+  
+       {
+        "id": "8",
+        "title": "My sixth post",
+        "artist": "8번작가",
+        "image": "https://bit.ly/2WNi2Ml",
+        "rentalDate": "date",
+        "rentalToggle": "true",
+        "descript": "8번 작품입니다."
+
+       },
+  
+       {
+        "id": "9",
+        "title": "My sixth post",
+        "artist": "9번작가",
+        "image": "https://bit.ly/2WNi2Ml",
+        "rentalDate": "date",
+        "rentalToggle": "true",
+        "descript": "9번 작품입니다."
+       },
+  
+       {
+        "id": "10",
+        "title": "My sixth post",
+        "artist": "10번작가",
+        "image": "https://bit.ly/2WNi2Ml",
+        "rentalDate": "date",
+        "rentalToggle": "true",
+        "descript": "10번 작품입니다."
+
+       }
+   ]
+}
