@@ -5,6 +5,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableBody from "@material-ui/core/TableBody";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
+import { Link } from "react-router-dom";
 import style from "../../styles/RentalIndex";
 import Axios from "../../lib";
 
@@ -12,7 +13,6 @@ export default class Artist extends Component {
     render() {
         const { artistList } = this.props;
         const classes = style.bind();
-        console.log("Artist컴포넌트"+this.props);
 
         return (
 
@@ -20,22 +20,19 @@ export default class Artist extends Component {
                 <Table className={classes.table}>
                     <TableHead>
                         <TableRow>
-                            <TableCell>번호</TableCell>
-                            <TableCell>이미지</TableCell>
-                            <TableCell>작품이름</TableCell>
-                            <TableCell>대여인아이디</TableCell>
-                            <TableCell>대여기간</TableCell>
+                            <TableCell>작가이름</TableCell>
+                            <TableCell>작가나이</TableCell>
+                            <TableCell>성별</TableCell>
+                            <TableCell>작품조회하기</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        
                         {artistList.map(c => (
                             <TableRow>
-                                <TableCell>{c.id}</TableCell>
-                                <TableCell><img src={c.image} alt="profile" /></TableCell>
-                                <TableCell>{c.ArtName}</TableCell>
-                                <TableCell>{c.Customer}</TableCell>
-                                <TableCell>{c.RentalDate}</TableCell>
+                                <TableCell>{c.name}</TableCell>
+                                <TableCell>{c.age}</TableCell>
+                                <TableCell>{c.sex}</TableCell>
+                                <TableCell><Link to={`/ArtistItem/${c.id}`} size="small" color="primary">작품보기</Link></TableCell>
                             </TableRow>
                         ))}
                     </TableBody>

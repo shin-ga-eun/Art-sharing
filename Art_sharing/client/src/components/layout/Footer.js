@@ -11,7 +11,7 @@ export default function Album() {
             <CssBaseline />
             <footer className={classes.footer}>
                 <Typography variant="h6" align="center" color="textSecondary" component="p" gutterBottom>
-          한이음 뿌셔뿌셔 2019. All right reserved.
+          SKUNIV COSMOS 2019. All right reserved.
                 </Typography>
             </footer>
         </React.Fragment>

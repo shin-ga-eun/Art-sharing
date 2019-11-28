@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import style from "../../styles/RentalIndex";
 import Axios from "../../lib";
 
-export default class Rental extends Component {
+export default class RentaClient extends Component {
     render() {
         const { rentList } = this.props;
         const classes = style.bind();
@@ -20,17 +20,18 @@ export default class Rental extends Component {
                 <Table className={classes.table}>
                     <TableHead>
                         <TableRow>
-                            <TableCell>이미지</TableCell>
-                            <TableCell>작품이름</TableCell>
-                            <TableCell>대여상황</TableCell>
+                            <TableCell>작품명</TableCell>
+                            <TableCell>대여일</TableCell>
+                            <TableCell>반납일</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         {rentList.map(c => (
                             <TableRow>
-                                <TableCell><img src={c.image} alt="profile" /></TableCell>
+                               
                                 <TableCell>{c.artName}</TableCell>
-                                <TableCell><Link to={`/RentArtistItem/${c.id}`} size="small" color="primary">대여현황</Link></TableCell>
+                                <TableCell>{c.rentDate}</TableCell>
+                                <TableCell>{c.returnDate}</TableCell>
                             </TableRow>
                         ))}
                     </TableBody>

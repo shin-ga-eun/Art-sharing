@@ -45,7 +45,6 @@ const RentArtistItem = ({ match }) => {
     return (
         artItem && (
             <div>
-              
                 <Paper className={classes.root}>
                     <Table className={classes.table}>
                         <TableHead>

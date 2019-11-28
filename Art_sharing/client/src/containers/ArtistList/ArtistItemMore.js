@@ -8,10 +8,10 @@ import { Card } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import Axios from "axios";
 import useStyles from "../../styles/ArtItemMoreIndex";
-import PayButton from "./PayButton";
+import PayButton from "../ArtItemList/PayButton";
 import axios from "../../lib";
 
-const ArtItemMore = ({ match }) => {
+const ArtistItemMore = ({ match }) => {
     const classes = useStyles.bind();
     console.log(match.params.id);
     const [artItem, setArtItem] = useState(null);
@@ -63,9 +63,8 @@ const ArtItemMore = ({ match }) => {
                                       작품 등록일:{artItem.regDate}
                                     </Typography>
                                     <Typography gutterBottom>
-                                        <PayButton id={artItem.id} />
+                                        <PayButton />
                                     </Typography>
-                                    <Link variant="outlined" color="primary" to="/artItemList">되돌아가기</Link>
                                 </Grid>
                             </Grid>
                         </Grid>
@@ -75,4 +74,4 @@ const ArtItemMore = ({ match }) => {
         )
     );
 };
-export default ArtItemMore;
+export default ArtistItemMore;

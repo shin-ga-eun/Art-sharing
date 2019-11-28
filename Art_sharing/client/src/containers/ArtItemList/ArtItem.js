@@ -6,13 +6,12 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActionArea from "@material-ui/core/CardActionArea";
+import {Link} from "react-router-dom";
 import useStyles from "../../styles/ArtItemListIndex";
 import Axios from "../../lib";
-import {Link} from "react-router-dom";
 
 class ArtItem extends Component {
-    
     render() {
         const { artItems } = this.props;
         const classes = useStyles.bind();
@@ -42,7 +41,7 @@ class ArtItem extends Component {
                                     </CardContent>
 
                                     <CardActions>
-                                        <Link to ={`/ArtItemMore/${card.id}`} size="small" color="primary">
+                                        <Link to={`/ArtItemMore/${card.id}`} size="small" color="primary">
                                 작품 상세보기
                                         </Link>
                                     </CardActions>

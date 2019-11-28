@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import Artist from "./Artist";
+import RentClient from "./RentClient";
 import axios from "../../lib";
 
-export default class ArtistList extends Component {
+export default class RentListClient extends Component {
     state={
+        artItems: [],
 
-        Artworks: [],
         // Artworks: [
         //     {
         //         id: 1,
@@ -31,16 +31,17 @@ export default class ArtistList extends Component {
         // ],
     }
 
-    componentDidMount=async () => {
+    componentDidMount = async () => {
+        // GET /artSharing/art/artsList/{pageNum}
         try {
-            const response = await axios.get("/artSharing/sign/artistList");
+            const response = await axios.get("/artSharing/rent/1");
             const { status, data } = response;
-            if (status == 200) {
+            if (status === 200) {
                 console.log(data);
                 const { state } = this;
                 this.setState({
                     ...state,
-                    Artworks: data,
+                    artItems: data.content,
                 });
             }
         } catch (e) {
@@ -48,10 +49,11 @@ export default class ArtistList extends Component {
         }
     }
 
+
     render() {
         return (
 
-            <Artist artistList={this.state.Artworks} />
+            <RentClient rentList={this.state.artItems} />
 
         );
     }

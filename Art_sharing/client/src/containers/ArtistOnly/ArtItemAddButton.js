@@ -67,7 +67,7 @@ class ArtItemAdd extends Component {
       const { artName, explanation, price } = this.state;
 
       formData.append("imageFile", this.state.file);
-   
+
       const config = {
           headers: {
               "Content-type": "multipart/form-data",
@@ -173,7 +173,7 @@ class ArtItemAdd extends Component {
                               value={this.state.artName}
                               onChange={this.handleValueChange}
                           /><br />
-               
+
                           <TextField
                               id="outlined-adornment-weight"
                               variant="outlined"

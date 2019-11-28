@@ -4,7 +4,7 @@ import Input from "@material-ui/core/Input";
 import FormLabel from "@material-ui/core/FormLabel";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-
+import Typography from "@material-ui/core/Typography";
 import { Container } from "@material-ui/core";
 import { Card } from "@material-ui/core";
 import Axios from "axios";
@@ -12,18 +12,18 @@ import Axios from "axios";
 
 class Artist extends React.Component {
     state={
-       data: {
-            // mno: 0, //회원번호
+        data: {
+            name: "", // 이름
             affiliation: "", // 소속
-            age: "", // 나이
-            id: "", // 아이디
-            name: "신가은", // 이름
-            password: "", // 비밀번호
-            phone: "", // 전화번호
             role: "", // 역할
             sex: "", // 성별
+            age: "", // 나이
+            id: "", // 아이디
+            password: "", // 비밀번호
+            phone: "", // 전화번호
+
         },
-        isLoading:  true,
+        isLoading: true,
     }
 
     componentDidMount =async () => {
@@ -57,6 +57,36 @@ class Artist extends React.Component {
         });
     }
 
+    handleFormSubmit=async (e) => {
+        e.preventDefault(); // axios를 통하여 데이터를 넘겨주는 부분 구현해야 함
+        console.log("hello");
+        console.log(this.state.data);
+        const {
+            affiliation, age, id, name, password, phone, role, sex,
+        } = this.state.data;
+
+        try {
+            const response = await Axios.put("/artSharing/sign", {
+                affiliation,
+                age,
+                id,
+                name,
+                password,
+                phone,
+                role,
+                sex,
+            }, {
+                headers: {
+                    "Content-type": "application/json",
+                },
+            });
+            console.log(response);
+        } catch (error) {
+            alert(error);
+            console.log(error);
+        }
+    }
+
 
     render() {
         const { isLoading, data } = this.state;
@@ -64,19 +94,18 @@ class Artist extends React.Component {
         return (
             <React.Fragment>
                 {isLoading === false
-                &&                (
+                && (
                     <React.Fragment>
                         <h1>회원정보</h1>
-                        <form>
+                        <form onSubmit={this.handleFormSubmit}>
                             <div className="Artist">
 
-
-                                <FormLabel htmlFor="affiliation">소속</FormLabel>
+                                <FormLabel htmlFor="name">이름</FormLabel>
                                 <Input
                                     type="text"
-                                    value={data.affiliation}
-                                    name="affiliation"
-                                    id="affiliation"
+                                    value={data.name}
+                                    name="name"
+                                    id="name"
                                     placeholder=""
                                     onChange={this.handleChange}
                                 />
@@ -93,12 +122,34 @@ class Artist extends React.Component {
                                 />
                                 <br />
 
+                                <FormLabel htmlFor="affiliation">소속</FormLabel>
+                                <Input
+                                    type="text"
+                                    value={data.affiliation}
+                                    name="affiliation"
+                                    id="affiliation"
+                                    placeholder=""
+                                    onChange={this.handleChange}
+                                />
+                                <br />
+
+                                <FormLabel htmlFor="role">역할</FormLabel>
+                                <Input
+                                    value={data.role}
+                                    name="role"
+                                    id="role"
+                                    placeholder=" "
+                                    // onChange={this.handleChange}
+                                />
+
+                                <br />
+
                                 <FormLabel htmlFor="id">아이디</FormLabel>
                                 <Input
                                     id="id"
                                     value={data.id}
                                     name="id"
-                                    onChange={this.handleChange}
+                                    // onChange={this.handleChange}
                                 />
 
                                 <br />
@@ -124,29 +175,8 @@ class Artist extends React.Component {
                                 />
 
                                 <br />
-                                <FormLabel htmlFor="role">역할</FormLabel>
-                                <Input
-                                    value={data.role}
-                                    name="role"
-                                    id="role"
-                                    placeholder=" "
-                                    onChange={this.handleChange}
-                                />
 
-                                <br />
-                                <FormLabel htmlFor="sex">성별</FormLabel>
-                                <Input
-                                    value={data.sex}
-                                    name="sex"
-                                    id="sex"
-                                    placeholder=" "
-                                    onChange={this.handleChange}
-                                />
-
-                                <br />
-
-                                <Button type="submit" variant="contained" color="secondary">등록</Button>
-
+                                <Button type="submit" size="small" color="primary">정보수정하기</Button>
 
                             </div>
                         </form>

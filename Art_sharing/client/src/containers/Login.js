@@ -12,7 +12,7 @@ class Login extends Component {
   state={
       id: "",
       password: "",
-      role:"",
+      role: "",
       open: false, // dialog 창이 열려있는지 유무
   }
 
@@ -49,24 +49,21 @@ class Login extends Component {
                 pw: password,
             });
 
-            const {status, data} = response;
+            const { status, data } = response;
 
-            if (status === 200){
-                console.log("ss"+data);
+            if (status === 200) {
+                console.log(`ss${data}`);
 
                 this.setState({
-                    role: response.data
-                })
-                console.log("dd"+this.state.role);
+                    role: response.data,
+                });
+                console.log(`dd${this.state.role}`);
             }
 
             this.handleClose();
-            handleLogin(true,this.state.role);
+            handleLogin(true, this.state.role);
             console.log(response);
             history.push("/");
-
-            
-
         } catch (error) {
             alert(error);
             console.log(error);

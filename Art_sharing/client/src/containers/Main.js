@@ -28,8 +28,8 @@ export default function Blog() {
                             Art sharing service.
                             </Typography>
                             <Typography variant="h5" color="inherit" paragraph>
-                            Share your art with people anytime <br/>
-                            Your surroundings will be beautiful.<br/>
+                            Share your art with people anytime <br />
+                            Your surroundings will be beautiful.<br />
 
                             </Typography>
                             <Link variant="subtitle1" href="#">
